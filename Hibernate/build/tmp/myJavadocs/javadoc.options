@@ -1,0 +1,12 @@
+-d '/home/dmitrii/IdeaProjects/Hibernate/build/docs/javadoc'
+-doctitle 'Hibernate API'
+-private 
+-quiet 
+-windowtitle 'Hibernate API'
+'/home/dmitrii/IdeaProjects/Hibernate/src/main/java/com/ex/Application.java'
+'/home/dmitrii/IdeaProjects/Hibernate/src/main/java/com/ex/AbonentInPhoneBook.java'
+'/home/dmitrii/IdeaProjects/Hibernate/src/main/java/com/ex/Rest.java'
+'/home/dmitrii/IdeaProjects/Hibernate/src/main/java/com/ex/HibernateSession.java'
+'/home/dmitrii/IdeaProjects/Hibernate/src/main/java/com/ex/WorkOfAbonent.java'
+'/home/dmitrii/IdeaProjects/Hibernate/src/main/java/com/ex/HTML.java'
+'/home/dmitrii/IdeaProjects/Hibernate/src/main/java/com/ex/Abonent.java'

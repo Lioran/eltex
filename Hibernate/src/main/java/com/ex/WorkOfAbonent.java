@@ -8,11 +8,24 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import org.apache.log4j.Logger;
 
+/**
+ * Класс для работы с абонентами в телефонной книге
+ * @author Dmitrii
+ * @version 1.0
+ */
 public class WorkOfAbonent{
-	public static void main(String args[])throws SQLException{
+    final static Logger log = Logger.getLogger(WorkOfAbonent.class);
+
+    /**
+     * Точка входа программы
+     * @param args - параметры запуска программы
+     */
+    public static void main(String args[]){
 		AbonentInPhoneBook abinpb = new AbonentInPhoneBook();
 			while(true){
+			    log.info("Запуск меню");
                 System.out.println("1. Добавить абонента");
                 System.out.println("2. Удалить абонента");
                 System.out.println("3. Показать всех абонентов");
@@ -22,6 +35,7 @@ public class WorkOfAbonent{
                 String s = scanner.next();
                 switch (s){
                     case "1":{
+                        log.info("Выбор первого пункта");
                         System.out.print("\033[H\033[2J");
                         System.out.flush();
                         System.out.println("Введите ФИО, телефон и адрес");
@@ -31,6 +45,7 @@ public class WorkOfAbonent{
                         abinpb.save(ab);
                     }break;
                     case "2":{
+                        log.info("Выбор второго пункта");
                         System.out.print("\033[H\033[2J");
                         System.out.flush();
                         System.out.println("Введите ФИО, телефон и адрес");
@@ -40,6 +55,7 @@ public class WorkOfAbonent{
                         abinpb.delete(ab);
                     }break;
                     case "3":{
+                        log.info("Выбор третьего пункта");
                         System.out.print("\033[H\033[2J");
                         System.out.flush();
                         ArrayList<Abonent> list = new ArrayList<Abonent>();
@@ -50,6 +66,7 @@ public class WorkOfAbonent{
                         }
                     }break;
                     case "4":{
+                        log.info("Выбор четвертого пункта");
                         System.out.print("\033[H\033[2J");
                         System.out.flush();
                         System.out.println("Введите ID");
@@ -57,6 +74,7 @@ public class WorkOfAbonent{
                         System.out.println("id "+ab.id+" fio: "+ab.getFio()+" phone: "+ab.getPhone()+" adress: "+ab.getAdress());
                     }break;
                     case "exit":{
+                        log.info("Выход из меню. Конец программы");
                         return;
                     }
                 }

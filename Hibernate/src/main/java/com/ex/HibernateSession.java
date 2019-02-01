@@ -4,12 +4,26 @@ import com.ex.Abonent;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
-
+/**
+ * Класс создания сессии в Hibernate
+ * @author Dmitrii
+ * @version 1.0
+ */
 public class HibernateSession {
+    /**
+     * Поле сессии
+     */
     private static SessionFactory sessionFactory;
 
+    /**
+     * Конструктор сессии
+     */
     private HibernateSession(){};
 
+    /**
+     * Функция получения сессии {@link HibernateSession#sessionFactory}
+     * @return сессию
+     */
     public static SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
             try {

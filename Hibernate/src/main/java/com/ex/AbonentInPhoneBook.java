@@ -7,12 +7,25 @@ import com.ex.HibernateSession;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ *Класс с CRUD-операциями
+ * @author Dmitrii
+ * @version 1.0
+ */
 public class AbonentInPhoneBook {
+    /**
+     * Функция поиска абонента по заданому индитификатору
+     * @param id - индитификатор
+     * @return - абонент
+     */
     public Abonent findById(int id){
         return HibernateSession.getSessionFactory().openSession().get(Abonent.class, id);
     }
 
+    /**
+     * Функция сохранения абонента в базу данных
+     * @param abonent - абонент
+     */
     public void save(Abonent abonent) {
         Session session = HibernateSession.getSessionFactory().openSession();
         Transaction tx1 = session.beginTransaction();
@@ -21,6 +34,10 @@ public class AbonentInPhoneBook {
         session.close();
     }
 
+    /**
+     * Функция удаления абонента из базы данных
+     * @param abonent - абонент
+     */
     public void delete(Abonent abonent) {
         Session session = HibernateSession.getSessionFactory().openSession();
         Transaction tx1 = session.beginTransaction();
@@ -29,6 +46,10 @@ public class AbonentInPhoneBook {
         session.close();
     }
 
+    /**
+     * Функция обновления данных об абоненте в базу данных
+     * @param abonent - абонент
+     */
     public void update(Abonent abonent) {
         Session session = HibernateSession.getSessionFactory().openSession();
         Transaction tx1 = session.beginTransaction();
@@ -37,6 +58,10 @@ public class AbonentInPhoneBook {
         session.close();
     }
 
+    /**
+     * Функция вывода всех абонентов из базы данных
+     * @return список абонентов
+     */
     public List getAllAbonent() {
         return (List<Abonent>) HibernateSession.getSessionFactory().openSession().createQuery("FROM Abonent", Abonent.class).list();
     }
