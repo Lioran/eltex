@@ -29,6 +29,7 @@ dependencies{
     testCompile('org.springframework.boot:spring-boot-starter-test')
 
     compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    compile 'log4j:log4j:1.2.17'
 }
 task myJavadocs(type: Javadoc) {
     source = sourceSets.main.allJava
