@@ -18,7 +18,7 @@ public class Application{
      * Точка входа программы
      * @param args - параметры для запуска
      */
-    public final static void main(String []args){
+    public static void main(String []args){
         log.info("Запуск приложения");
         SpringApplication.run(Application.class, args);
     }

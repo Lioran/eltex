@@ -1,6 +1,5 @@
 package com.ex;
 
-import com.ex.Abonent;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;

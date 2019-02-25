@@ -63,7 +63,7 @@ public class Abonent implements Serializable {
      * Функция получения значения поля {@link Abonent#id}
      * @return возвращает индетификатор абонента
      */
-    private Integer getId() { return this.id; }
+    public Integer getId() { return this.id; }
 
     /**
      * Функция получения значения поля {@link Abonent#Adress}

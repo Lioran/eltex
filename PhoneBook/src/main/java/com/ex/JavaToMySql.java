@@ -13,43 +13,40 @@ public class JavaToMySql {
     private static ResultSet rs;
 
     public static String addToJDBC(Abonent ab){
-        String query = "INSERT INTO abonents (fio, phone, adress) VALUE('"+ab.getFio()+"','"+ab.getPhone()+"','"+ab.getAdress()+"');";
-        return query;
+        return "INSERT INTO abonents (fio, phone, adress) VALUE('"+ab.getFio()+"','"+ab.getPhone()+"','"+ab.getAdress()+"');";
     }
     public static String delToJDBC(int num){
-        String query = "DELETE FROM abonents WHERE id = "+num+";";
-        return query;
+        return "DELETE FROM abonents WHERE id = "+num+";";
     }
     public static String allToJDBC(){
-        String query = "SELECT * FROM abonents;";
-        return query;
+        return "SELECT * FROM abonents;";
     }
     public static String searchToJDBC(String fio){
-        String query = "SELECT * FROM abonents WHERE fio = "+fio+";";
-        return query;
+        return "SELECT * FROM abonents WHERE fio = "+fio+";";
     }
-    public final static void main(String[] args){
+    public static void main(String[] args){
         try{
             con = DriverManager.getConnection(url, user, password);
             stmt = con.createStatement();
             Scanner scanner = new Scanner(System.in);
-            String query = "", s;
+            String query = "", menu;
             while(true){
                 System.out.println("1. Добавить абонента");
                 System.out.println("2. Удалить абонента");
                 System.out.println("3. Показать всех абонентов");
                 System.out.println("4. Найти абонента");
-                Abonent ab = new Abonent();
-                s = scanner.next();
-                switch (s){
+                Abonent somebody_abonent = new Abonent();
+                menu = scanner.next();
+                switch (menu){
                     case "1":{
                         System.out.print("\033[H\033[2J");
                         System.out.flush();
                         System.out.println("Введите ФИО, телефон и адрес");
-                        ab.setFio(scanner.next());
-                        ab.setPhone(scanner.next());
-                        ab.setAdress(scanner.next());
-                        query = addToJDBC(ab);
+                        somebody_abonent.id++;
+                        somebody_abonent.setFio(scanner.next());
+                        somebody_abonent.setPhone(scanner.next());
+                        somebody_abonent.setAdress(scanner.next());
+                        query = addToJDBC(somebody_abonent);
                         stmt.executeUpdate(query);
 
                     }break;
@@ -94,12 +91,11 @@ public class JavaToMySql {
                 }
             }
         }catch(SQLException sqlEx){
-            sqlEx.printStackTrace();
-
+            System.out.println(sqlEx.getMessage());
         }finally {
-            try { con.close(); } catch(SQLException se) { System.out.println(se.toString()); }
-            try { stmt.close(); } catch(SQLException se) { System.out.println(se.toString()); }
-            try { rs.close(); } catch(SQLException se) { System.out.println(se.toString()); }
+            try { con.close(); } catch(SQLException se) { System.out.println(se.getMessage()); }
+            try { stmt.close(); } catch(SQLException se) { System.out.println(se.getMessage()); }
+            try { rs.close(); } catch(SQLException se) { System.out.println(se.getMessage()); }
         }
     }
 }

@@ -1,7 +1,6 @@
 package com.ex;
 
-import com.ex.Abonent;
-import com.ex.AbonentInPhoneBook;
+
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 

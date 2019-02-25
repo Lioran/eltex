@@ -1,11 +1,7 @@
 package com.ex;
 
-import com.ex.Abonent;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import com.ex.HibernateSession;
-
-import java.util.ArrayList;
 import java.util.List;
 /**
  *Класс с CRUD-операциями
@@ -62,7 +58,7 @@ public class AbonentInPhoneBook {
      * Функция вывода всех абонентов из базы данных
      * @return список абонентов
      */
-    public List getAllAbonent() {
-        return (List<Abonent>) HibernateSession.getSessionFactory().openSession().createQuery("FROM Abonent", Abonent.class).list();
+    public List<Abonent> getAllAbonent() {
+        return HibernateSession.getSessionFactory().openSession().createQuery("FROM Abonent", Abonent.class).list();
     }
 }
