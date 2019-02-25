@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * Класс Rest-контроллера
@@ -28,7 +29,18 @@ class Rest{
      */
     @RequestMapping("/getAllAbonent")
     public ArrayList<Abonent> getAll(){
-        AbonentInPhoneBook abinpb = new AbonentInPhoneBook();
-        return (ArrayList<Abonent>)abinpb.getAllAbonent();
+        AbonentInPhoneBook abonentInPhoneBook = new AbonentInPhoneBook();
+        return (ArrayList<Abonent>)abonentInPhoneBook.getAllAbonent();
+    }
+
+    @RequestMapping("/addAbonent")
+    public void getAbonent(Map<String, String>WhatCame){
+        AbonentInPhoneBook abonentInPhoneBook = new AbonentInPhoneBook();
+        Abonent somebodyAbonent = new Abonent();
+        somebodyAbonent.setFio(WhatCame.get("fio"));
+        somebodyAbonent.setPhone(WhatCame.get("phone"));
+        somebodyAbonent.setAdress(WhatCame.get("adress"));
+        System.out.println(WhatCame.size()+" "+WhatCame.get("fio")+" "+WhatCame.get("phone")+" "+WhatCame.get("adress"));
+        abonentInPhoneBook.save(somebodyAbonent);
     }
 }

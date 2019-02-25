@@ -24,9 +24,9 @@ public class AbonentInPhoneBook {
      */
     public void save(Abonent abonent) {
         Session session = HibernateSession.getSessionFactory().openSession();
-        Transaction tx1 = session.beginTransaction();
+        Transaction transaction = session.beginTransaction();
         session.save(abonent);
-        tx1.commit();
+        transaction.commit();
         session.close();
     }
 
@@ -36,9 +36,9 @@ public class AbonentInPhoneBook {
      */
     public void delete(Abonent abonent) {
         Session session = HibernateSession.getSessionFactory().openSession();
-        Transaction tx1 = session.beginTransaction();
+        Transaction transaction = session.beginTransaction();
         session.delete(abonent);
-        tx1.commit();
+        transaction.commit();
         session.close();
     }
 
@@ -48,9 +48,9 @@ public class AbonentInPhoneBook {
      */
     public void update(Abonent abonent) {
         Session session = HibernateSession.getSessionFactory().openSession();
-        Transaction tx1 = session.beginTransaction();
+        Transaction transaction = session.beginTransaction();
         session.update(abonent);
-        tx1.commit();
+        transaction.commit();
         session.close();
     }
 
