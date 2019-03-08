@@ -3,7 +3,7 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.min.js"></script>
     <script type = "text/javascript">
         var app = angular.module("List", []);
-        app.controller("ListController", function($http){
+        app.controller("ListController", function($scope, $http){
             var LC = this;
             LC.database = [];
             LC.loadList = function() {
@@ -12,6 +12,16 @@
               .success(function (res) {
                  LC.database = res;
               });
+            LC.send = function(){
+                $http
+                  .post('/addAbonent', [{"id":5, "fio":$scope.fio, "phone":$scope.phone, "adress":$scope.adress}])
+                  .success(function (res) {
+                     LC.database = res;
+                  })
+                  .error(function(error){
+                    alert("Error"+$scope.fio);
+                  });
+            }
            }
            LC.loadList();
         });
@@ -19,6 +29,14 @@
 </head>
 <body ng-app = "List" ng-controller = "ListController as lc">
 <table class='table'>
+    <p>ФИО</p>
+    <input type="text" ng-model="fio"/>
+    <p>Телефон</p>
+    <input type="text" ng-model="phone"/>
+    <p>Адрес</p>
+    <input type="text" ng-model="adress"/>
+    <br />
+    <input type = "submit" ng-click = "lc.send()"/>
     <thead>
     <tr>
         <th>ID</th>
